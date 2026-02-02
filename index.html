@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Laila, Will You Be My Valentine? 🎭</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff6b9d, #c44569, #ff9ff3);
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 10px #ff1744; }
+      to { text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 0 0 20px #ff69b4; }
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 500px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .drama-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #ffd700;
+      margin: 10px 0;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      margin: 0 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    #yesBtn {
+      background: linear-gradient(45deg, #ff1744, #ff69b4);
+      color: #fff;
+    }
+    #noBtn {
+      background: #fff;
+      color: #c44569;
+      position: relative;
+    }
+    button:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+    #message {
+      margin-top: 25px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffd700;
+      min-height: 50px;
+    }
+    .heart {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: #ff69b4;
+      transform: rotate(45deg);
+      animation: floatUp 5s infinite;
+      opacity: 0.8;
+      z-index: -1;
+    }
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: #ff69b4;
+      border-radius: 50%;
+    }
+    .heart:before { top: -12px; left: 0; }
+    .heart:after { left: -12px; top: 0; }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(-100px) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Laila, Will You Be My Valentine? 💖🎥</h1>
+  <p>Laila, tere bina system hang ho jata hai! Tu meri Wi‑Fi, main tera network — signal milte hi life connect hoti hai! 😜<br>
+     Laila ke piche Majnu tha, main bhi gaya… farq bas itna hai, usko mohabbat mili, mujhe Shaitan!" 😂<br>
+     <span class="drama-text">"Kabhi kabhi lagta hai jaise tu mujhe neki ke badle mili hai..." – Humsafar style! 🎭</span></p>
+  <div class="buttons">
+    <button id="yesBtn">Haan Abrar ji! 💃🕺</button>
+    <button id="noBtn">Nahi! 😤 (Drama!)</button>
+  </div>
+  <div id="message"></div>
+
+  <script>
+    // Floating hearts Pakistani drama style
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.animationDelay = Math.random() * 2 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+
+    // Buttons with filmy comedy
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+
+    yesBtn.addEventListener("click", () => {
+      message.innerHTML = "Arre wah! Haan keh diya! Ab 14 Feb se officially humari Laila–Majnu wali love story shuru! 💕<br>Love you Laila, tu meri Laila aur main tera full‑time Majnu forever! 💫🎉";
+      confetti(); // Add some celebration if you want (browser supports)
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 200);
+      const y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.position = "absolute";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+      noBtn.innerHTML = "Abay oye, pakdo! 😆";
+    });
+    noBtn.addEventListener("click", () => {
+      message.innerHTML = "Nahi? Chal theek hai, par tu jaanegi main roz late reply karunga jaise tu karti hai! 😉<br>Phir bhi Valentine mana lenge, rishta pakka! 😂";
+    });
+  </script>
+</body>
+</html>
